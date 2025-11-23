@@ -54,8 +54,7 @@ const Sidebar = () => {
             window.location.href = '/login'; 
             localStorage.removeItem('accessToken');
             localStorage.removeItem('userId');
-            localStorage.removeItem('userEmail');
-            localStorage.removeItem('business_name');
+
         }
     };
 

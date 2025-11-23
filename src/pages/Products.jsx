@@ -31,7 +31,6 @@ const Products = () => {
           "https://mwsie-backend.onrender.com/api/ecommerce/products"
         );
         setProducts(response.data.products);
-        console.log("Fetched products:", response.data.products);
       } catch (err) {
         console.error("❌ Error fetching products:", err);
       } finally {

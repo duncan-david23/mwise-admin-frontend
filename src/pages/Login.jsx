@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../utils/supabase'
+import { FaEyeSlash } from "react-icons/fa";
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,8 @@ const Login = () => {
     password: '',
     rememberMe: false
   })
+
+    const [showPassword, setShowPassword] = useState(false)
 
   const [msg, setMsg] = useState('')
   const navigate = useNavigate();
@@ -102,17 +106,21 @@ const Login = () => {
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                   Password
                 </label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition-colors duration-200 text-base"
-                  placeholder="••••••••"
-                />
+                <div className='flex items-center gap-2 border-none outline-none border-gray-300 rounded-lg px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-black focus-within:border-black transition-colors duration-200'>
+                
+                                  <input
+                                    id="password"
+                                    name="password"
+                                    type={showPassword ? "text" : "password"}
+                                    autoComplete="current-password"
+                                    required
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    className="w-full border-none rounded-lg outline-none placeholder-gray-400 focus:outline-none  transition-colors duration-200 text-base"
+                                    placeholder="••••••••"
+                                  />
+                                  <FaEyeSlash onClick={() => setShowPassword(!showPassword)} className='cursor-pointer hover:scale-105 transition-all' />
+                                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -166,10 +174,7 @@ const Login = () => {
                   <div className="text-lg font-bold text-gray-900">256-bit</div>
                   <div className="text-xs text-gray-600">Encryption</div>
                 </div>
-                <div className="p-3 bg-gray-50 rounded-lg">
-                  <div className="text-lg font-bold text-gray-900">24/7</div>
-                  <div className="text-xs text-gray-600">Support</div>
-                </div>
+               
               </div>
             </div>
 

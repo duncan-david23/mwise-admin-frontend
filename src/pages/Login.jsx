@@ -152,14 +152,14 @@ const Login = () => {
                 >
                   Sign in
                 </button>
-                <div>
+                {/* <div>
                   <p className="mt-4 text-center text-sm text-gray-600">
                     Don't have an account?{' '}
                     <a href="/register" className="font-medium text-gray-700 hover:text-black transition-colors duration-200">
                       Sign up
                     </a>
                   </p>
-                </div>
+                </div> */}
               </div>
             </form>
 
